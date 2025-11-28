@@ -1053,6 +1053,7 @@
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>©️Chuliang Huang，最后更新时间：2025年11月28日</p>
                 <p class="text-sm mt-2">本网页所有链接均由trae生成，仅供学习交流</p>
+                <p class="text-sm mt-2" id="visitor-counter">您是第 <span class="text-primary font-semibold">1</span> 位访客</p>
             </div>
         </div>
     </footer>
@@ -1190,6 +1191,35 @@
                 link.setAttribute('rel', 'noopener noreferrer');
             }
         });
+        
+        // 访客统计功能
+        function updateVisitorCount() {
+            // 获取当前访客数
+            let visitorCount = localStorage.getItem('visitorCount');
+            
+            // 如果没有记录，初始化为1
+            if (!visitorCount) {
+                visitorCount = 1;
+            } else {
+                // 否则增加1
+                visitorCount = parseInt(visitorCount) + 1;
+            }
+            
+            // 保存更新后的访客数
+            localStorage.setItem('visitorCount', visitorCount);
+            
+            // 更新页面显示
+            const visitorCounter = document.getElementById('visitor-counter');
+            if (visitorCounter) {
+                const countSpan = visitorCounter.querySelector('span');
+                if (countSpan) {
+                    countSpan.textContent = visitorCount.toLocaleString();
+                }
+            }
+        }
+        
+        // 页面加载时更新访客统计
+        window.addEventListener('DOMContentLoaded', updateVisitorCount);
     </script>
 
 </body></html>
