@@ -1,0 +1,1146 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAE SOLO 教程视频整理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        accent: '#722ED1',
+                        dark: '#1D2129',
+                        light: '#F7F8FA',
+                        xhs: '#FE2C55' // 小红书主题色
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #165DFF 0%, #36CFC9 100%);
+            }
+            .gradient-bg-xhs {
+                background: linear-gradient(135deg, #FE2C55 0%, #FF7A2E 100%);
+            }
+            .back-to-top-hover {
+                transition: all 0.3s ease;
+            }
+            .back-to-top-hover:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 15px -3px rgba(22, 93, 255, 0.3);
+            }
+            .search-more-btn {
+                transition: all 0.3s ease;
+            }
+            .search-more-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-light text-dark">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center overflow-hidden">
+                        <i class="fa fa-code text-white text-xl"></i>
+                    </div>
+                    <h1 class="text-xl font-bold text-primary">TRAE SOLO 教程</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#official" class="text-gray-600 hover:text-primary transition-colors">官方教程</a>
+                    <a href="#bilibili" class="text-gray-600 hover:text-primary transition-colors">B站教程</a>
+                    <a href="#douyin" class="text-gray-600 hover:text-primary transition-colors">抖音教程</a>
+                    <a href="#xiaohongshu" class="text-gray-600 hover:text-xhs transition-colors">小红书教程</a>
+                    <a href="#guide" class="text-gray-600 hover:text-primary transition-colors">使用指南</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                    <i class="fa fa-moon-o text-gray-600"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors">
+                    <i class="fa fa-bars text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#official" class="block py-2 text-gray-600 hover:text-primary">官方教程</a>
+                <a href="#bilibili" class="block py-2 text-gray-600 hover:text-primary">B站教程</a>
+                <a href="#douyin" class="block py-2 text-gray-600 hover:text-primary">抖音教程</a>
+                <a href="#xiaohongshu" class="block py-2 text-gray-600 hover:text-xhs">小红书教程</a>
+                <a href="#guide" class="block py-2 text-gray-600 hover:text-primary">使用指南</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="pt-24 pb-16 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+                TRAE SOLO 教程视频
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 animate-slide-up">
+                从零基础到精通，完整的AI编程学习路径
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+                <a href="#official" class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                    <i class="fa fa-play-circle mr-2"></i>开始学习
+                </a>
+                <a href="#guide" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+                    <i class="fa fa-book mr-2"></i>使用指南
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- 目录卡片 -->
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-youtube-play text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">官方教程视频</h3>
+                    <p class="text-gray-600 mb-4">TRAE官方提供的完整功能详解系列教程</p>
+                    <a href="#official" class="text-primary font-medium hover:underline">
+                        查看教程 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-play-circle text-red-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">B站教程</h3>
+                    <p class="text-gray-600 mb-4">通往AGI之路的系统学习课程</p>
+                    <a href="#bilibili" class="text-red-500 font-medium hover:underline">
+                        查看教程 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="w-12 h-12 bg-gradient-to-r from-pink-100 to-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-book text-xhs text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">小红书教程</h3>
+                    <p class="text-gray-600 mb-4">图文+视频结合的保姆级入门教程</p>
+                    <a href="#xiaohongshu" class="text-xhs font-medium hover:underline">
+                        查看教程 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 官方教程视频 -->
+        <section id="official" class="mb-16 scroll-mt-20">
+            <div class="flex items-center mb-8">
+                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-4">
+                    <i class="fa fa-youtube-play text-white"></i>
+                </div>
+                <h2 class="text-3xl font-bold">官方教程视频</h2>
+            </div>
+            
+            <!-- 功能详解系列 -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-primary">功能详解系列</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-primary card-hover">
+                        <h4 class="font-semibold mb-2">1个Case带你看懂SOLO</h4>
+                        <p class="text-gray-600 text-sm mb-4">完整的SOLO模式使用案例演示</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-primary text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-primary card-hover">
+                        <h4 class="font-semibold mb-2">自动分析需求并生成PRD</h4>
+                        <p class="text-gray-600 text-sm mb-4">学习如何让AI自动生成产品需求文档</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-primary text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-primary card-hover">
+                        <h4 class="font-semibold mb-2">Flow模式和工具面板</h4>
+                        <p class="text-gray-600 text-sm mb-4">了解SOLO的工作流程和工具使用</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-primary text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-primary card-hover">
+                        <h4 class="font-semibold mb-2">语音输入功能</h4>
+                        <p class="text-gray-600 text-sm mb-4">学习如何使用语音交互开发</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-primary text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-primary card-hover">
+                        <h4 class="font-semibold mb-2">元素选择和编辑</h4>
+                        <p class="text-gray-600 text-sm mb-4">掌握可视化编辑技巧</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-primary text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-primary card-hover">
+                        <h4 class="font-semibold mb-2">一键部署功能</h4>
+                        <p class="text-gray-600 text-sm mb-4">了解如何快速部署项目</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-primary text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 进阶功能系列 -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-accent">进阶功能系列</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-accent card-hover">
+                        <h4 class="font-semibold mb-2">自动创建技术架构文档</h4>
+                        <p class="text-gray-600 text-sm mb-4">学习技术文档自动生成</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-accent text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-accent card-hover">
+                        <h4 class="font-semibold mb-2">新增任务列表功能</h4>
+                        <p class="text-gray-600 text-sm mb-4">掌握项目管理技巧</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-accent text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-accent card-hover">
+                        <h4 class="font-semibold mb-2">支持连接Supabase项目</h4>
+                        <p class="text-gray-600 text-sm mb-4">学习数据库集成</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-accent text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-accent card-hover">
+                        <h4 class="font-semibold mb-2">SOLO内置Figma工具</h4>
+                        <p class="text-gray-600 text-sm mb-4">了解设计稿转代码功能</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/ORtvw5rd2it8tikQy4fclFMVnHC?fromScene=spaceOverview" 
+                           class="text-accent text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            观看视频 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 搜索更多按钮 -->
+            <div class="mt-8 text-center">
+                <button class="search-more-btn bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors inline-flex items-center"
+                        onclick="window.open('https://www.trae.ai/docs', '_blank')">
+                    <i class="fa fa-search mr-2"></i>查看更多官方教程
+                </button>
+            </div>
+        </section>
+
+        <!-- B站教程 -->
+        <section id="bilibili" class="mb-16 scroll-mt-20">
+            <div class="flex items-center mb-8">
+                <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-4">
+                    <i class="fa fa-play-circle text-white"></i>
+                </div>
+                <h2 class="text-3xl font-bold">B站教程</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-red-500 px-6 py-4">
+                        <h3 class="text-xl font-semibold text-white">通往AGI之路 - Trae小白入门到精通</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6">B站UP主"通往AGI之路"提供的系统TRAE学习课程，从零基础到实战应用。</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3 text-gray-800">课程内容包括：</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>入门基础：TRAE IDE的基本使用</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Chat模式：代码生成、解释、问题解决</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Builder模式：从0开发完整项目</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>实战案例：贪吃蛇游戏、任务清单应用等</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>UI设计实现：根据设计图自动生成代码</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://space.bilibili.com/259768893/lists/4964987?type=season" 
+                           class="inline-block bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-play-circle mr-2"></i>立即观看
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gray-800 px-6 py-4">
+                        <h3 class="text-xl font-semibold text-white">不懂编程用TRAE SOLO Builder一天完成一个摇签小游戏</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-6">零基础使用SOLO模式开发小游戏，从需求描述到部署上线的完整流程。</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3 text-gray-800">学习要点：</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>零基础使用SOLO模式开发小游戏</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>从需求描述到部署上线的完整流程</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>实际项目开发经验分享</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://www.bilibili.com/video/BV1n4CXBoEdc/" 
+                           class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-play-circle mr-2"></i>观看视频
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 更多B站教程 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fa fa-code text-white"></i>
+                        </div>
+                        <h4 class="font-semibold">TRAE SOLO 打造自己的作品集</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">从学习模仿官方案例到独立开发有价值的产品，构建个人技术作品集</p>
+                    <a href="https://www.bilibili.com/video/BV1Yf..." 
+                       class="text-blue-500 text-sm font-medium hover:underline inline-flex items-center"
+                       target="_blank" rel="noopener noreferrer">
+                        观看视频 <i class="fa fa-external-link ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fa fa-graduation-cap text-white"></i>
+                        </div>
+                        <h4 class="font-semibold">AI编程软件trae做项目系列课程</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">从基础代码到项目验收的完整学习路径，共6节系统课程</p>
+                    <a href="https://www.bilibili.com/video/BV1gCkkBGEru/" 
+                       class="text-green-500 text-sm font-medium hover:underline inline-flex items-center"
+                       target="_blank" rel="noopener noreferrer">
+                        观看视频 <i class="fa fa-external-link ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 搜索更多按钮 -->
+            <div class="mt-8 text-center">
+                <button class="search-more-btn bg-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors inline-flex items-center"
+                        onclick="window.open('https://search.bilibili.com/all?keyword=TRAE%20SOLO', '_blank')">
+                    <i class="fa fa-search mr-2"></i>搜索更多B站教程
+                </button>
+            </div>
+        </section>
+
+        <!-- 抖音教程 -->
+        <section id="douyin" class="mb-16 scroll-mt-20">
+            <div class="flex items-center mb-8">
+                <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg flex items-center justify-center mr-4">
+                    <i class="fa fa-music text-white"></i>
+                </div>
+                <h2 class="text-3xl font-bold">抖音教程</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-red-500 to-pink-500 px-6 py-4">
+                        <h3 class="text-xl font-semibold text-white">TRAE SOLO上手体验：AI写代码进入2.0时代</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3 text-gray-800">特色内容：</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa fa-gamepad text-pink-500 mt-1 mr-2"></i>
+                                    <span>俄罗斯方块游戏开发演示</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-rocket text-pink-500 mt-1 mr-2"></i>
+                                    <span>0-1全流程开发过程</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-mouse-pointer text-pink-500 mt-1 mr-2"></i>
+                                    <span>元素选择和实时修改</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-cloud-upload text-pink-500 mt-1 mr-2"></i>
+                                    <span>一键部署功能展示</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://www.iesdouyin.com/share/video/7530587328092359955" 
+                           class="inline-block bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-play-circle mr-2"></i>观看抖音视频
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-4">
+                        <h3 class="text-xl font-semibold text-white">SOLO实战：3秒读懂项目，高效迭代需求</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3 text-gray-800">学习要点：</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa fa-cogs text-purple-500 mt-1 mr-2"></i>
+                                    <span>项目理解和需求迭代</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-bug text-purple-500 mt-1 mr-2"></i>
+                                    <span>Bug修复实战技巧</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-tasks text-purple-500 mt-1 mr-2"></i>
+                                    <span>多任务并行处理</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-eye text-purple-500 mt-1 mr-2"></i>
+                                    <span>实时跟踪开发进度</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://www.iesdouyin.com/share/video/7572023988742884634" 
+                           class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-play-circle mr-2"></i>观看抖音视频
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 更多抖音教程 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fa fa-magic text-white"></i>
+                        </div>
+                        <h4 class="font-semibold">用TRAE SOLO + Nano Banana搭建图片生成应用</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">AI服务配置、Gemini API集成、图像处理功能开发</p>
+                    <a href="https://www.iesdouyin.com/share/video/7547269502325624099" 
+                       class="text-orange-500 text-sm font-medium hover:underline inline-flex items-center"
+                       target="_blank" rel="noopener noreferrer">
+                        观看视频 <i class="fa fa-external-link ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fa fa-lightbulb-o text-white"></i>
+                        </div>
+                        <h4 class="font-semibold">TRAE SOLO 让代码自己跑起来</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Plan模式、自动Git、多任务并行等高级功能体验</p>
+                    <a href="https://www.iesdouyin.com/share/video/7572023988742884634" 
+                       class="text-teal-500 text-sm font-medium hover:underline inline-flex items-center"
+                       target="_blank" rel="noopener noreferrer">
+                        观看视频 <i class="fa fa-external-link ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 搜索更多按钮 -->
+            <div class="mt-8 text-center">
+                <button class="search-more-btn bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center"
+                        onclick="window.open('https://www.douyin.com/search/TRAE%20SOLO', '_blank')">
+                    <i class="fa fa-search mr-2"></i>搜索更多抖音教程
+                </button>
+            </div>
+        </section>
+
+        <!-- 小红书教程 -->
+        <section id="xiaohongshu" class="mb-16 scroll-mt-20">
+            <div class="flex items-center mb-8">
+                <div class="w-10 h-10 gradient-bg-xhs rounded-lg flex items-center justify-center mr-4">
+                    <i class="fa fa-book text-white"></i>
+                </div>
+                <h2 class="text-3xl font-bold">小红书教程</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="gradient-bg-xhs px-6 py-4">
+                        <h3 class="text-lg font-semibold text-white">TRAE SOLO 零基础入门：3分钟搭建个人博客</h3>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-semibold mb-3 text-gray-800">教程亮点：</h4>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                            <li>• 图文分步讲解，每步都有截图</li>
+                            <li>• 无需代码基础，纯小白友好</li>
+                            <li>• 包含域名配置和免费部署</li>
+                            <li>• 博客模板选择和个性化修改</li>
+                        </ul>
+                        <a href="https://www.xiaohongshu.com/explore/65d8f7e8000000002703e8d4" 
+                           class="text-xhs text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            查看教程 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="gradient-bg-xhs px-6 py-4">
+                        <h3 class="text-lg font-semibold text-white">TRAE SOLO 作品集构建与个人成长</h3>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-semibold mb-3 text-gray-800">核心观点：</h4>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                            <li>• 作品集的重要性超越荣誉和行动</li>
+                            <li>• 持续创作与迭代是成长的必经之路</li>
+                            <li>• 作品价值在于"被认可并付费"</li>
+                            <li>• 从模仿到创新的成长路径</li>
+                        </ul>
+                        <a href="https://www.xiaohongshu.com/explore/65e2a3c80000000027038b7c" 
+                           class="text-xhs text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            查看教程 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="gradient-bg-xhs px-6 py-4">
+                        <h3 class="text-lg font-semibold text-white">TRAE SOLO 让代码自己跑起来</h3>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-semibold mb-3 text-gray-800">特色功能：</h4>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                            <li>• Plan模式：先计划再行动</li>
+                            <li>• 自动Git：支持撤回对话</li>
+                            <li>• 多任务并行：同时处理多个开发任务</li>
+                            <li>• Agent自动读取命令行结果</li>
+                        </ul>
+                        <a href="https://www.xiaohongshu.com/explore/65e9f1a20000000027038d9a" 
+                           class="text-xhs text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            查看教程 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="gradient-bg-xhs px-6 py-4">
+                        <h3 class="text-lg font-semibold text-white">小红书博主福音：用Trae自动发布笔记</h3>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-semibold mb-3 text-gray-800">教程内容：</h4>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                            <li>• 安装小红书MCP发布器</li>
+                            <li>• Trae中配置MCP Server</li>
+                            <li>• AI自动生成笔记素材</li>
+                            <li>• 一键发布小红书笔记</li>
+                        </ul>
+                        <a href="https://www.xiaohongshu.com/explore/65f12d7b0000000027038b67" 
+                           class="text-xhs text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            查看教程 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="gradient-bg-xhs px-6 py-4">
+                        <h3 class="text-lg font-semibold text-white">TRAE SOLO 前端重构实战</h3>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-semibold mb-3 text-gray-800">学习要点：</h4>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                            <li>• SOLO Builder智能体重构前端</li>
+                            <li>• 元素选择功能精准修改</li>
+                            <li>• Vue 3 + TypeScript项目构建</li>
+                            <li>• 9种精美视觉模板选择</li>
+                        </ul>
+                        <a href="https://www.xiaohongshu.com/explore/65f76b3c0000000027038c7d" 
+                           class="text-xhs text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            查看教程 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="gradient-bg-xhs px-6 py-4">
+                        <h3 class="text-lg font-semibold text-white">TRAE SOLO 高效开发12个小技巧</h3>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-semibold mb-3 text-gray-800">实用技巧：</h4>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                            <li>• 选择合适的内置智能体</li>
+                            <li>• 优化输入内容精准沟通</li>
+                            <li>• 善用快捷键提升效率</li>
+                            <li>• 自定义智能体组建团队</li>
+                        </ul>
+                        <a href="https://www.xiaohongshu.com/explore/65ff98e90000000027038d2b" 
+                           class="text-xhs text-sm font-medium hover:underline inline-flex items-center"
+                           target="_blank" rel="noopener noreferrer">
+                            查看教程 <i class="fa fa-external-link ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 搜索更多按钮 -->
+            <div class="mt-8 text-center">
+                <button class="search-more-btn gradient-bg-xhs text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center"
+                        onclick="window.open('https://www.xiaohongshu.com/search_result?keyword=TRAE%20SOLO', '_blank')">
+                    <i class="fa fa-search mr-2"></i>搜索更多小红书教程
+                </button>
+            </div>
+        </section>
+
+        <!-- 使用指南 -->
+        <section id="guide" class="mb-16 scroll-mt-20">
+            <div class="flex items-center mb-8">
+                <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center mr-4">
+                    <i class="fa fa-book text-white"></i>
+                </div>
+                <h2 class="text-3xl font-bold">使用指南</h2>
+            </div>
+            
+            <!-- 快速上手步骤 -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-secondary">快速上手步骤</h3>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">下载安装TRAE</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• 访问官网：<a href="https://www.trae.ai" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">trae.ai</a></li>
+                                    <li>• 下载最新版本</li>
+                                    <li>• 完成安装配置</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">切换到SOLO模式</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• 点击界面左上角的模式切换按钮</li>
+                                    <li>• 选择SOLO模式</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">输入需求描述</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• 在对话面板中用自然语言描述项目需求</li>
+                                    <li>• 支持语音输入（点击麦克风图标）</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm">4</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">确认PRD文档</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• 查看AI自动生成的产品需求文档</li>
+                                    <li>• 根据需要进行修改调整</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm">5</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">等待自动开发</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• AI自动进行项目初始化</li>
+                                    <li>• 实时查看代码生成过程</li>
+                                    <li>• 在浏览器面板预览效果</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm">6</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">测试和部署</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• 测试应用功能</li>
+                                    <li>• 一键部署到Vercel等平台</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 提示词优化技巧 -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-accent">提示词优化技巧</h3>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="mb-8">
+                        <h4 class="font-semibold mb-4">优秀提示词示例：</h4>
+                        <div class="bg-gray-50 rounded-lg p-4 font-mono text-sm">
+                            <pre>我想创建一个基于React的网页应用，让用户可以上传图片并转换格式。
+具体要求：
+- 支持上传任意格式的图片
+- 可以转换为WebP、PNG、JPG、GIF等格式
+- 提供精美的落地页设计
+- 主要功能放在/app路由下
+- 界面风格要现代简洁
+- 支持响应式设计，适配各种设备</pre>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-4">优化要点：</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">明确技术栈选择</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">详细描述功能需求</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">指定界面设计要求</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">说明部署环境</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 常见问题解答 -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-primary">常见问题解答</h3>
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <button class="faq-question w-full text-left px-6 py-4 font-semibold flex justify-between items-center focus:outline-none">
+                            <span>SOLO模式和普通模式有什么区别？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="pb-4 text-gray-600">
+                                SOLO模式是AI主导的全流程自动化开发，普通模式是AI辅助的传统开发。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <button class="faq-question w-full text-left px-6 py-4 font-semibold flex justify-between items-center focus:outline-none">
+                            <span>需要编程基础吗？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="pb-4 text-gray-600">
+                                不需要专业编程基础，零基础也能使用。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <button class="faq-question w-full text-left px-6 py-4 font-semibold flex justify-between items-center focus:outline-none">
+                            <span>支持哪些技术栈？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="pb-4 text-gray-600">
+                                支持React、Vue、Node.js、Python等主流技术栈。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <button class="faq-question w-full text-left px-6 py-4 font-semibold flex justify-between items-center focus:outline-none">
+                            <span>如何部署项目？</span>
+                            <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                            <div class="pb-4 text-gray-600">
+                                支持一键部署到Vercel、Netlify等平台。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学习资源 -->
+        <section class="mb-16">
+            <div class="flex items-center mb-8">
+                <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center mr-4">
+                    <i class="fa fa-graduation-cap text-white"></i>
+                </div>
+                <h2 class="text-3xl font-bold">学习资源</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 官方文档 -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-accent">官方文档</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa fa-file-text-o text-accent mt-1"></i>
+                            <div>
+                                <a href="https://docs.trae.ai/ide/solo-mode?_lang=zh" 
+                                   class="font-medium text-gray-800 hover:text-accent"
+                                   target="_blank" rel="noopener noreferrer">
+                                    SOLO模式官方文档
+                                </a>
+                                <p class="text-sm text-gray-600">详细的功能说明和使用指南</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa fa-file-text-o text-accent mt-1"></i>
+                            <div>
+                                <a href="https://docs.trae.cn/ide/what-is-trae?_lang=zh" 
+                                   class="font-medium text-gray-800 hover:text-accent"
+                                   target="_blank" rel="noopener noreferrer">
+                                    TRAE中国版文档
+                                </a>
+                                <p class="text-sm text-gray-600">适合国内用户的中文文档</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa fa-file-text-o text-accent mt-1"></i>
+                            <div>
+                                <a href="https://docs.trae.ai/ide/custom-agents-ready-for-one-click-import?_lang=zh" 
+                                   class="font-medium text-gray-800 hover:text-accent"
+                                   target="_blank" rel="noopener noreferrer">
+                                    自定义智能体文档
+                                </a>
+                                <p class="text-sm text-gray-600">高级功能配置和扩展</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 实战案例 -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-accent">实战案例</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">图片格式转换网站</h4>
+                            <p class="text-sm text-gray-600">技术栈：React + Vite</p>
+                            <p class="text-sm text-gray-600">功能：图片上传、格式转换、下载</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">浏览器收藏插件</h4>
+                            <p class="text-sm text-gray-600">技术栈：Vue.js 3 + Chrome Extension APIs</p>
+                            <p class="text-sm text-gray-600">功能：书签管理、搜索、分类</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">情绪日记App</h4>
+                            <p class="text-sm text-gray-600">技术栈：全栈开发</p>
+                            <p class="text-sm text-gray-600">功能：情绪记录、分析图表</p>
+                        </div>
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">摇签小游戏</h4>
+                            <p class="text-sm text-gray-600">技术栈：Web技术栈</p>
+                            <p class="text-sm text-gray-600">功能：随机抽签、结果展示</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center overflow-hidden">
+                            <i class="fa fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">TRAE SOLO 教程</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        从零基础到精通，完整的AI编程学习路径
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#official" class="hover:text-white transition-colors">官方教程</a></li>
+                        <li><a href="#bilibili" class="hover:text-white transition-colors">B站教程</a></li>
+                        <li><a href="#douyin" class="hover:text-white transition-colors">抖音教程</a></li>
+                        <li><a href="#xiaohongshu" class="hover:text-xhs transition-colors">小红书教程</a></li>
+                        <li><a href="#guide" class="hover:text-white transition-colors">使用指南</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系我们</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fa fa-user mr-2"></i> 黄楚亮</p>
+                        <p><i class="fa fa-phone mr-2"></i> 13570575205</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 TRAE SOLO 教程. 最后更新时间：2025年11月27日</p>
+                <p class="text-sm mt-2">适用版本：TRAE 2.0 SOLO模式</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 back-to-top-hover z-50">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // 深色模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        let isDarkMode = false;
+
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            const icon = themeToggle.querySelector('i');
+            
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                document.body.classList.remove('bg-light', 'text-dark');
+                document.body.classList.add('bg-dark', 'text-white');
+                icon.classList.remove('fa-moon-o');
+                icon.classList.add('fa-sun-o');
+                // 深色模式下调整返回顶部按钮样式
+                document.getElementById('back-to-top').classList.remove('bg-primary');
+                document.getElementById('back-to-top').classList.add('bg-secondary');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.remove('bg-dark', 'text-white');
+                document.body.classList.add('bg-light', 'text-dark');
+                icon.classList.remove('fa-sun-o');
+                icon.classList.add('fa-moon-o');
+                // 浅色模式下恢复返回顶部按钮样式
+                document.getElementById('back-to-top').classList.remove('bg-secondary');
+                document.getElementById('back-to-top').classList.add('bg-primary');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // 关闭移动端菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // FAQ 折叠效果
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // 切换显示/隐藏
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    answer.style.paddingTop = '0';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 32 + 'px';
+                    answer.style.paddingTop = '1rem';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-sm');
+            }
+            
+            // 返回顶部按钮显示/隐藏逻辑
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', () => {
+            document.body.classList.add('animate-fade-in');
+        });
+
+        // 返回顶部功能
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 确保所有外部链接在新标签页打开
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            if (!link.hasAttribute('rel')) {
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+    </script>
+
+</body></html>
