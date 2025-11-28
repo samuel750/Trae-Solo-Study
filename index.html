@@ -1192,21 +1192,37 @@
             }
         });
         
-        // 访客统计功能
+        // 访客统计功能优化：基于设备特征的指纹识别，同一设备不重复统计
         function updateVisitorCount() {
+            // 生成设备指纹
+            const deviceFingerprint = generateDeviceFingerprint();
+            
+            // 获取已访问设备列表
+            let visitedDevices = localStorage.getItem('visitedDevices');
+            visitedDevices = visitedDevices ? JSON.parse(visitedDevices) : [];
+            
+            // 检查当前设备是否已经访问过
+            const hasVisited = visitedDevices.includes(deviceFingerprint);
+            
             // 获取当前访客数
             let visitorCount = localStorage.getItem('visitorCount');
             
-            // 如果没有记录，初始化为1
+            // 如果没有记录，初始化为0
             if (!visitorCount) {
-                visitorCount = 1;
+                visitorCount = 0;
             } else {
-                // 否则增加1
-                visitorCount = parseInt(visitorCount) + 1;
+                visitorCount = parseInt(visitorCount);
             }
             
-            // 保存更新后的访客数
-            localStorage.setItem('visitorCount', visitorCount);
+            // 如果设备没有访问过，则增加访客数
+            if (!hasVisited) {
+                visitorCount++;
+                // 保存更新后的访客数
+                localStorage.setItem('visitorCount', visitorCount);
+                // 添加到已访问设备列表
+                visitedDevices.push(deviceFingerprint);
+                localStorage.setItem('visitedDevices', JSON.stringify(visitedDevices));
+            }
             
             // 更新页面显示
             const visitorCounter = document.getElementById('visitor-counter');
@@ -1216,6 +1232,41 @@
                     countSpan.textContent = visitorCount.toLocaleString();
                 }
             }
+        }
+        
+        // 生成设备指纹（优化：移除浏览器特定特征，提高跨浏览器识别准确率）
+        function generateDeviceFingerprint() {
+            // 收集设备特征（移除浏览器特定的userAgent，使用更稳定的设备级特征）
+            const features = [
+                navigator.platform, // 操作系统平台
+                navigator.hardwareConcurrency, // CPU核心数
+                navigator.deviceMemory, // 设备内存
+                screen.width + 'x' + screen.height, // 屏幕分辨率
+                screen.colorDepth, // 颜色深度
+                new Date().getTimezoneOffset(), // 时区偏移
+                navigator.language, // 浏览器语言
+                // 尝试获取更多设备级特征
+                navigator.maxTouchPoints || 0, // 触摸屏点数
+                navigator.vendor || '', // 浏览器厂商
+                // 组合一些稳定的系统信息
+                navigator.oscpu || '', // 操作系统CPU信息
+                (navigator.appVersion || '').split(' ')[0] || '' // 浏览器主版本号
+            ];
+            
+            // 简单的哈希函数
+            function simpleHash(str) {
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash;
+                }
+                return hash.toString(16);
+            }
+            
+            // 组合特征并生成哈希
+            const combined = features.join('|');
+            return simpleHash(combined);
         }
         
         // 页面加载时更新访客统计
