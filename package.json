@@ -1,0 +1,14 @@
+{
+  "name": "trae-solo-tutorial",
+  "version": "1.0.0",
+  "description": "TRAE SOLO 教程视频整理网站",
+  "main": "index.html",
+  "scripts": {
+    "dev": "echo 'Running development server...'",
+    "build": "echo 'Building project...'",
+    "start": "echo 'Starting server...'"
+  },
+  "keywords": ["trae", "solo", "tutorial", "ai", "programming"],
+  "author": "",
+  "license": "MIT"
+}
