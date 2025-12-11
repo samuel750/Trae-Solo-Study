@@ -4,6 +4,8 @@
     <title>TRAE SOLO 教程视频整理</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Supabase Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -37,6 +39,28 @@
                 }
             }
         }
+        
+        // Supabase Configuration
+        const supabaseUrl = 'https://koohfwhvmdhgtqjqczou.supabase.co';
+        const supabaseAnonKey = 'sb_secret_0edEDPMUulWYCal1wyCsyQ_TcUtQNiz';
+        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+        
+        // Test Supabase Connection
+        async function testSupabaseConnection() {
+            try {
+                const { data, error } = await supabase.from('test_table').select('*').limit(1);
+                if (error) {
+                    console.log('Supabase connection test - Table not found (expected if test_table doesn\'t exist)', error.message);
+                } else {
+                    console.log('Supabase connection test - Success:', data);
+                }
+            } catch (error) {
+                console.error('Supabase connection error:', error);
+            }
+        }
+        
+        // Call the test function when the page loads
+        window.addEventListener('load', testSupabaseConnection);
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
